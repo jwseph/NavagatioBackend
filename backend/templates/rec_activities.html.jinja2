@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Activities in {{ city_name }}</title>
+</head>
+<body>
+    <h1>Activities in {{ city_name }}</h1>
+    {% for attraction in attraction_list %}
+        <h2>{{ attraction['basic-info']['candidates'][0]['name']}}, {{ attraction['basic-info']['candidates'][0]['rating'] }} stars</h2>
+        <p>Location: {{ attraction['basic-info']['candidates'][0]['formatted_address']}}</p>
+        <p>Type of Attraction: {{ attraction['basic-info']['candidates'][0]['types']}}</p>
+    {% endfor %}
+</body>
+</html>
