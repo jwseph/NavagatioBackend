@@ -6,9 +6,18 @@ from util import *
 os.environ['PATH'] += r"C:\Development"
 driver = webdriver.Chrome()
 
-'''
-'''
+# TODO: Determine list of edge cases and add checks for them
 def find_attractions(user_city_query, num_pages):
+    ''' Scrapes pages of attraction names for a certain city from trip advisor
+
+    Parameters
+    ----------
+    user_city_query : str
+        a string representing a city that the user wishes to search for. The code does not take in account of edge cases (whoops)
+
+    num_pages : int
+        an integer representing the number of pages a user wishes to scrape through. (Each page contains 0-30 attractions)
+    '''
     result = []
     url_string = f'https://www.tripadvisor.com/Search?q={user_city_query}&searchSessionId=E331623918D4BAD07396B370D0ADFA611661196804804ssid&searchNearby=false&sid=8F5B89C15E384480AF8856177B28B80D1661196805901&blockRedirect=true&rf=7&geo=1&ssrc=A'
     driver.get(url_string)
@@ -43,4 +52,4 @@ def find_attractions(user_city_query, num_pages):
     return result
 
 
-print(find_attractions("Mukilteo", 1))
+# print(find_attractions("Mukilteo", 1))
