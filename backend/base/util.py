@@ -2,7 +2,7 @@ import requests
 import json
 import textwrap
 
-import backend.config as config
+import config as config
 
 
 def get_index(strings, substr):
