@@ -1,6 +1,6 @@
 from flask import Flask, jsonify
-from base.scraper import *
-
+import json
+from api import api_utils
 # from flask_restful import Api, Resource, reqparse
 # from api.TravelApiHandler import TravelApiHandler
 
@@ -17,8 +17,8 @@ def create_plan():
 # GET /attractions/<string:city>
 @app.route('/attractions/<string:city_name>', methods=['GET'])
 def get_attractions(city_name):
-    attractions = find_attractions(city_name, 1)
-    return json.dumps(get_all_attraction_data(city_name, attractions), indent=4)
+    return json.dumps(api_utils.get_all_attraction_data(city_name), indent=4)
+
 
 # GET /Best planned Attractions
 @app.route('/attractions')

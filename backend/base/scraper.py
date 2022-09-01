@@ -1,14 +1,20 @@
 from selenium import webdriver
 import os
 from selenium.webdriver.common.by import By
-from .util import *
 
 os.environ['PATH'] += r"C:\Development"
 driver = webdriver.Chrome()
 
 
+def get_index(strings, substr):
+    for idx, string in enumerate(strings):
+        if substr in string:
+            return idx
+    return 3
+
+
 # TODO: Determine list of edge cases and add checks for them
-def find_attractions(user_city_query, num_pages):
+def find_attractions(user_city_query, num_pages=1):
     """ Scrapes pages of attraction names for a certain city from trip advisor
 
     Parameters
@@ -20,7 +26,6 @@ def find_attractions(user_city_query, num_pages):
         an integer representing the number of pages a user wishes to scrape through. (Each page contains 0-30 attractions)
     """
     result = []
-    num = 30
     url_string = f'https://www.tripadvisor.com/Search?q={user_city_query}&searchSessionId=E331623918D4BAD07396B370D0ADFA611661196804804ssid&searchNearby=false&sid=8F5B89C15E384480AF8856177B28B80D1661196805901&blockRedirect=true&rf=7&geo=1&ssrc=A'
     driver.get(url_string)
     driver.implicitly_wait(10)
@@ -56,21 +61,3 @@ def find_attractions(user_city_query, num_pages):
 
     driver.close()
     return result
-
-
-def get_all_attraction_data(city, attractions):
-    result = []
-    for attraction in attractions:
-        place_data = get_place_data(city, attraction)
-        # TODO: Some error here (Place id doesnt exist?)
-        """
-            place_id = place_data.json().get("candidates")[0].get('place_id')
-        """
-        place_id = place_data.json().get("candidates")[0].get('place_id')
-
-        place_detail_data = get_place_detail_data(place_id)
-
-        result.append({'basic-info': place_data.json(), 'advanced-info': place_detail_data.json()})
-
-    return result
-
