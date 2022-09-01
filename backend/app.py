@@ -1,7 +1,7 @@
-from flask import Flask, render_template
-# from flask_restful import Api, Resource, reqparse
+from flask import Flask, jsonify
+from base.scraper import *
 
-from base.util import *
+# from flask_restful import Api, Resource, reqparse
 # from api.TravelApiHandler import TravelApiHandler
 
 app = Flask(__name__, static_url_path='', static_folder='frontend/build')
@@ -17,8 +17,8 @@ def create_plan():
 # GET /attractions/<string:city>
 @app.route('/attractions/<string:city_name>', methods=['GET'])
 def get_attractions(city_name):
-    pass
-
+    attractions = find_attractions(city_name, 1)
+    return json.dumps(get_all_attraction_data(city_name, attractions), indent=4)
 
 # GET /Best planned Attractions
 @app.route('/attractions')
