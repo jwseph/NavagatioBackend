@@ -1,11 +1,8 @@
 from flask import Flask, jsonify
 import json
 from api import api_utils
-# from flask_restful import Api, Resource, reqparse
-# from api.TravelApiHandler import TravelApiHandler
 
 app = Flask(__name__, static_url_path='', static_folder='frontend/build')
-# api = Api(app)
 
 
 # POST /user data: {tripName:}
@@ -41,7 +38,6 @@ def serve():  # put application's code here
     return '<h1>Welcome To Wanderlag!</h1>'
 
 
-# api.add_resource(TravelApiHandler, '/flask/content')
 
 if __name__ == '__main__':
     app.run()

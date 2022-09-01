@@ -1,8 +1,6 @@
 import json
 import textwrap
 
-from backend.api.config import api_key
-
 
 def get_index(strings, substr):
     for idx, string in enumerate(strings):

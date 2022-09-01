@@ -1,5 +1,5 @@
 import requests
-from backend.base import scraper
+from . import scraper
 from .config import api_key
 
 

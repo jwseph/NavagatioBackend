@@ -59,5 +59,6 @@ def find_attractions(user_city_query, num_pages=1):
 
                 result.append(attraction_name)
 
-    driver.close()
+    driver.quit()
     return result
+
