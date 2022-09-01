@@ -7,20 +7,29 @@ from base.util import *
 app = Flask(__name__, static_url_path='', static_folder='frontend/build')
 # api = Api(app)
 
+
 # POST /user data: {tripName:}
 @app.route('/trip_plan', methods=["POST"])
 def create_plan():
     pass
+
 
 # GET /attractions/<string:city>
 @app.route('/attractions/<string:city_name>', methods=['GET'])
 def get_attractions(city_name):
     pass
 
+
 # GET /Best planned Attractions
 @app.route('/attractions')
 def get_attractions_near():
-    pass
+    response_body = {
+        "name": "Nagato",
+        "about":"Hello! I'm a full stack developer that loves python and javascript"
+    }
+
+    return response_body
+
 
 @app.route('/attractions/<string:city_name>/place')
 def get_attractions_place(name):
