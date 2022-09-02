@@ -18,7 +18,7 @@ def get_attractions(city_name):
 # GET /Best planned Attractions
 @app.route('/trips')
 def get_top_trips():
-    return {"top-trips": ["Beijing", "Los Angeles", "Tokyo"]}
+    return {"top_trips": ["Beijing", "Los Angeles", "Tokyo"]}
 
 
 @app.route('/attractions/<string:city_name>/place')
