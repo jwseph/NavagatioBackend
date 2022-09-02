@@ -2,13 +2,13 @@ body {
   padding: 0 3%;
 }
 
-/* .loading {
+.loading {
   scale: 10%;
   animation-name: spin;
   animation-duration: 3s;
   animation-iteration-count: infinite;
   animation-timing-function: linear; 
-} */
+}
 
 @keyframes spin {
   from {
