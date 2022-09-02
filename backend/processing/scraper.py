@@ -3,7 +3,6 @@ import os
 from selenium.webdriver.common.by import By
 
 os.environ['PATH'] += r"C:\Development"
-driver = webdriver.Chrome()
 
 
 def get_index(strings, substr):
@@ -26,6 +25,8 @@ def find_attractions(user_city_query, num_pages=1):
         an integer representing the number of pages a user wishes to scrape through. (Each page contains 0-30 attractions)
     """
     result = []
+    driver = webdriver.Chrome()
+    
     url_string = f'https://www.tripadvisor.com/Search?q={user_city_query}&searchSessionId=E331623918D4BAD07396B370D0ADFA611661196804804ssid&searchNearby=false&sid=8F5B89C15E384480AF8856177B28B80D1661196805901&blockRedirect=true&rf=7&geo=1&ssrc=A'
     driver.get(url_string)
     driver.implicitly_wait(10)

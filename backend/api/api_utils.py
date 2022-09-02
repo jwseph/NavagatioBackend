@@ -1,6 +1,7 @@
 import requests
-from . import scraper
-from .config import api_key
+
+from backend.processing.scraper import find_attractions
+from backend.api.config import api_key
 
 
 # GOOGLE PLACES API ACCESS
@@ -16,7 +17,7 @@ def get_place_detail_data(place_id):
 
 def get_all_attraction_data(city):
     result = []
-    attractions = scraper.find_attractions(city)
+    attractions = find_attractions(city)
     for attraction in attractions:
         place_data = get_place_data(city, attraction)
         # TODO: Some error here (Place id doesnt exist?)

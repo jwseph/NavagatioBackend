@@ -1,6 +1,4 @@
-from flask import Flask, jsonify
-import json
-from api import api_utils
+from flask import Flask
 
 app = Flask(__name__, static_url_path='', static_folder='frontend/build')
 
@@ -12,20 +10,15 @@ def create_plan():
 
 
 # GET /attractions/<string:city>
-@app.route('/attractions/<string:city_name>', methods=['GET'])
+@app.route('/plans/<string:city_name>', methods=['GET'])
 def get_attractions(city_name):
-    return json.dumps(api_utils.get_all_attraction_data(city_name), indent=4)
+    pass
 
 
 # GET /Best planned Attractions
-@app.route('/attractions')
-def get_attractions_near():
-    response_body = {
-        "name": "Nagato",
-        "about":"Hello! I'm a full stack developer that loves python and javascript"
-    }
-
-    return response_body
+@app.route('/trips')
+def get_top_trips():
+    return {"top-trips": ["Beijing", "Los Angeles", "Tokyo"]}
 
 
 @app.route('/attractions/<string:city_name>/place')
@@ -38,6 +31,5 @@ def serve():  # put application's code here
     return '<h1>Welcome To Wanderlag!</h1>'
 
 
-
 if __name__ == '__main__':
-    app.run()
+    app.run(debug=True)
