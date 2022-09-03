@@ -5,11 +5,18 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 
 app = Flask(__name__)
+# basedir = os.path.abspath(os.path.dirname(__file__))
+# app.config['SQLALCHEMY_DATABASE_URI'] =     'sqlite:///'+os.path.join(basedir,'data.sqlite')
+# app.config['SQLALCEMY_TRACK_MODIFICATIONS'] = False
 
+# db = SQLAlchemy(app)
+# Migrate(app, db)
 
+# from errors.handler import error_pages
+# app.register_blueprint(error_pages)
 
 api = Api(app)
-searches = []
+
 
 class TopTrips(Resource):
 
@@ -21,7 +28,6 @@ class ProcessedPlan(Resource):
 
     def post(self, city_name):
         search = {"searched":city_name}
-        searches.append(search)
         return search
 
 # Top Trips (Returning most popular trips near you)
