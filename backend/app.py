@@ -26,10 +26,12 @@ class ProcessedPlan(Resource):
         search = {"searched":city_name}
         return search
 
+
 # Top Trips (Returning most popular trips near you)
 api.add_resource(TopTrips, '/trips')
 # Returns PROCESSED TRIP PLAN (AI Data)
 api.add_resource(ProcessedPlan, '/plans/<string:city_name>')
+
 
 # POST /user data: {tripName:}
 @app.route('/trip_plan', methods=["POST"])
