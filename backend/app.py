@@ -11,10 +11,6 @@ app = Flask(__name__)
 
 # db = SQLAlchemy(app)
 # Migrate(app, db)
-
-# from errors.handler import error_pages
-# app.register_blueprint(error_pages)
-
 api = Api(app)
 
 
