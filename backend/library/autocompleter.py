@@ -1,4 +1,6 @@
-class ReTrie:
+import json
+
+class Autocompleter:
     def __init__(self, data):
         self.data = data
 
@@ -22,4 +24,13 @@ class ReTrie:
                 return []
             node = node[1][char]
 
-        return [prefix + string for string in self.get_strings(node)]
+        results = [prefix + string for string in self.get_strings(node)]
+        if len(results) > 20:
+            return results[:25]
+        return results
+
+def autocomp_init(path='places.json'):
+    with open(path) as json_file:
+        data = json.load(json_file)
+    return Autocompleter(data=data)
+
