@@ -1,18 +1,17 @@
 # Build trie to json
 import json
 import pandas as pd
-from trie import Trie 
+from autocompleter import ReTrie 
 
 test_words = ['Foo', 'Fosh', 'Big', 'Bibble', 'Blasted']
-df = pd.read_csv('autocomp_data.csv')
-cities = list(df['city_ascii'])
-# with open('places.json') as json_file:
-#     data = json.load(json_file)
-#     print(data[1])
+# df = pd.read_csv('autocomp_data.csv')
+# cities = list(df['city_ascii'])
 
-autocompleter = Trie()
+with open('places.json') as json_file:
+    data = json.load(json_file)
+    # print(data[1]['F'])
 
-autocompleter.addlist(cities)
-with open('places.json', 'w') as f:
-    json.dump(autocompleter.to_dict(), f)
-print(f'With prefix B {autocompleter.autocomplete("Tok")}')
+autocompleter = ReTrie(data=data)
+# print(autocompleter.get_strings())
+print(autocompleter.autocomplete("Muk"))
+# print(f'With prefix Tok {autocompleter.autocomplete("Tok")}')

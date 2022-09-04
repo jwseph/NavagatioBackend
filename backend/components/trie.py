@@ -1,5 +1,5 @@
 class Trie:
-    def __init__(self, is_end = False, children_data=None):
+    def __init__(self, is_end=False, children_data=None):
         if children_data is not None:
             self.is_end = children_data[0]
             self.children = children_data[1]
