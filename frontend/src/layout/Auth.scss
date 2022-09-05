@@ -15,14 +15,12 @@ h1 {
     position: absolute;
     top: 50%;
     left: 50%;
-    -ms-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
 }
 
 .content-field {
     position: relative;
     border-bottom: 2px solid $medium-gray;
-    margin: 30px 0;
 }
 
 input {
@@ -33,6 +31,7 @@ input {
     border: none;
     background: none;
     outline: none;
+    display: block;
 
     &:focus ~ label,
     &:valid ~ label {
@@ -70,5 +69,11 @@ label {
 
 .icon {
     scale: 1.2;
-    margin-top: 1rem;
+    margin-top: 12px;
+    color: $medium-gray;
+}
+
+.input-field {
+    display: flex;
+    margin: 30px 0;
 }

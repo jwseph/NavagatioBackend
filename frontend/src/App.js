@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 // import TripList from './layout/TripList';
-import Auth from './layout/Auth';
+import Signup from './layout/Signup';
 
 import './App.css';
 
@@ -19,7 +19,7 @@ function App() {
   // console.log(attractions)
   return (
     <div className="App">
-      <Auth/>
+      <Signup/>
     </div>
   );
 }
