@@ -1,0 +1,27 @@
+@import '../sass/variables.scss';
+
+body {
+    text-align: center;
+    background-color: $light-gray;
+    position: absolute;
+}
+
+h1 {
+    color: $dark-gray;
+}
+
+input {
+    width: 100%;
+    background-color: transparent;
+    border: none;
+    border-bottom: 2px solid $medium-gray;
+    outline: none;
+
+    &::enabled {
+        border: none;
+    }
+}
+
+.wrapper-field {
+    position: relative;
+}
