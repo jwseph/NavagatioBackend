@@ -3,6 +3,7 @@ import { useSignup } from "../hooks/useSignup";
 import { MdMail, MdLock } from 'react-icons/md';
 import { AiFillEyeInvisible } from 'react-icons/ai';
 
+import Button from '../components/Button';
 import "./Auth.scss"
 
 export default function Signup() {
@@ -48,7 +49,7 @@ export default function Signup() {
                 </div>
 
                 <p>Already have an account?<span>Sign in</span></p>
-                <button>Sign Up</button>
+                <Button>Sign Up</Button>
                 {error && <p>{error}</p>}
             </form>
         </div>

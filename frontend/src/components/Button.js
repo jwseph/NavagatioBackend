@@ -1,7 +1,7 @@
 import '../sass/button.scss';
 function Button(props) {
     return(
-        <button>{props.children}</button>
+        <a href="#" className='btn btn-gray'>{props.children}</a>
     )
 }
 

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 // import TripList from './layout/TripList';
-import Signup from './layout/Signup';
+import Signup from './pages/Signup';
 
 import './App.css';
 

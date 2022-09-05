@@ -1,3 +1,4 @@
+import Button from '../components/Button';
 const Login = () => {
     return(
         <div>
@@ -16,7 +17,7 @@ const Login = () => {
                     <label><MdLock/>  Password</label>
                 </div>
                 <p>Don't have an account?<span>Sign up</span></p>
-                <button>Log In</button>
+                <Button>Log In</Button>
                 {error && <p>{error}</p>}
             </form>
         </div>

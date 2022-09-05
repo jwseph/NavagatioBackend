@@ -1,0 +1,27 @@
+@import '../sass/variables.scss';
+.btn {
+    &:link,
+    &:visited {
+        text-decoration: none;
+        padding: 10px 100px;
+        font-weight: 700;
+        display: inline-block;
+        border-radius: 100px;
+        transition: all .2s;
+    }
+
+    &:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 10px 20px rgba($color: #000000, $alpha: 0.2);
+    }
+
+    &:active {
+        transform: translateY(-1px);
+        box-shadow: 0 5px 20px rgba($color: #000000, $alpha: 0.2);
+    }
+
+    &-gray {
+        color: white;
+        background-color: $dark-gray;
+    }
+}
