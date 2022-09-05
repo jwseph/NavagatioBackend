@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import TripList from './Layout/TripList';
+import TripList from './layout/TripList';
 
 import './App.css';
 
