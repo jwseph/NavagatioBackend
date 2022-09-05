@@ -1,49 +1,36 @@
-import React, { useState, useEffect, Fragment } from 'react';
-import './App.css';
-import attractions from './baller.json';
-// import 'loading.png';
-function App() {
+import React, { useState, useEffect } from 'react';
+import TripList from './Layout/TripList';
 
-  const [data, setData] = useState([{}])
+import './App.css';
+
+function App() {
+  const [kismet, setKismet] = useState([{}])
 
   useEffect(() => {
-    fetch("/trips").then(
+    fetch("/search/Muki").then(
       res => res.json()
     ).then(
       data => {
-        setData(data)
+        setKismet(data)
         console.log(data);
       }
     )
   }, [])
 
-  console.log(attractions)
+  // console.log(attractions)
   return (
     <div className="App">
       <h1>Welcome to Wanderlag</h1>
-      {(typeof data.top_trips === 'undefined') ? (
-        <Fragment>
-          <p>Loading...</p>
-          <img src="images/loading.png" className='loading'/>
-        </Fragment>
-      ): (
-        <ul>
-          {
-            data.top_trips.map((trip , i) => (
-              <li key={i}>{trip}</li>
-            ))
-          }
-        </ul>
-      )}
-
-    <h2>Attractions</h2>
+      <TripList/>
+      <p>Bruh</p>
+    {/* <h2>Attractions</h2>
     <ul>
           {
             attractions.map((attraction, i)  => {
               return <li key={i}>{attraction.basic_info.candidates[0].name} <br/> Rating: {attraction.basic_info.candidates[0].rating}</li>
             })
           }
-    </ul>
+    </ul> */}
     
     </div>
   );

@@ -5,3 +5,4 @@ __pycache__
 .idea
 .env
 __init__.py
+config.js

@@ -33,8 +33,8 @@ api.add_resource(TopTrips, '/trips')
 # Returns PROCESSED TRIP PLAN (AI Data)
 api.add_resource(ProcessedPlan, '/plans/<string:city_name>')
 
-api.add_resource(PlacesAutocomplete, '/search/<string:current>')
-
+# Returns a list of possible results (up to 25)
+api.add_resource(PlacesAutocomplete, '/search/<string:search_query>')
 
 
 if __name__ == '__main__':
