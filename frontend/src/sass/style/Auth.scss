@@ -23,6 +23,7 @@ h1 {
     position: relative;
     border-bottom: 2px solid $medium-gray;
     width: 100%;
+    margin-left: 12px;
 }
 
 input {
@@ -83,6 +84,11 @@ label {
     position: relative;
     z-index: 2; 
     color: $medium-gray;
+}
+
+.button-icon {
+    scale: 1.5;
+    margin-right: 8px;
 }
 
 .input-field {
