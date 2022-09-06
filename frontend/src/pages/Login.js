@@ -24,7 +24,7 @@ export default function Signup() {
     }
 
     return(
-        <div>
+        <div className="">
             <h1>Welcome Back!</h1>
             <p>Log in you little bitch</p>
                 <form onSubmit={handleSubmit}>
@@ -44,12 +44,16 @@ export default function Signup() {
                                 <input type={visibility?"text":"password"} onChange={(event)=>{setPassword(event.target.value)}} required/>
                                 <span className="highlight"></span>
                                 <label>Password</label>
-                                {visibility?<AiFillEye className="eye-con" onClick={toggleVision}/>:<AiFillEyeInvisible className="eye-con" onClick={toggleVision}/>}
+                                {visibility?<AiFillEye className="eyecon" onClick={toggleVision}/>:<AiFillEyeInvisible className="eye-con" onClick={toggleVision}/>}
                             </div>
                         </div>
+
+                        <div className="flavor-container">
+                            <p>No account?<span style={{marginLeft: '0.5rem'}}>Sign up</span></p>
+                            <p>Forgot password?</p>
+                        </div>
                     </div>
-                    <p>No account?<span>Sign up</span></p>
-                    <input type="submit" value="Sign up" className="btn btn-gray"/>
+                    <input type="submit" value="Log in" className="btn btn-gray"/>
                     {error && <p>{error}</p>}
                 </form>
             <div>

@@ -10,6 +10,8 @@ import "../sass/style/Auth.scss";
 export default function Signup() {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
+
+
     const [visibility, setVisibility] = useState(false)
     const { error, signup } = useSignup()
 
@@ -24,7 +26,7 @@ export default function Signup() {
     }
 
     return(
-        <div>
+        <div className="">
             <h1>Get Started</h1>
             <p>Please create an account by email</p>
                 <form onSubmit={handleSubmit}>
@@ -44,7 +46,7 @@ export default function Signup() {
                                 <input type={visibility?"text":"password"} onChange={(event)=>{setPassword(event.target.value)}} required/>
                                 <span className="highlight"></span>
                                 <label>Password</label>
-                                {visibility?<AiFillEye className="eye-con" onClick={toggleVision}/>:<AiFillEyeInvisible className="eye-con" onClick={toggleVision}/>}
+                                {visibility?<AiFillEye className="eyecon" onClick={toggleVision}/>:<AiFillEyeInvisible className="eyecon" onClick={toggleVision}/>}
                             </div>
                         </div>
 
@@ -54,11 +56,13 @@ export default function Signup() {
                                 <input type={visibility?"text":"password"} required/>
                                 <span className="highlight"></span>
                                 <label>Confirm password</label>
-                                {visibility?<AiFillEye className="eye-con" onClick={toggleVision}/>:<AiFillEyeInvisible className="eye-con" onClick={toggleVision}/>}
+                                {visibility?<AiFillEye className="eyecon" onClick={toggleVision}/>:<AiFillEyeInvisible className="eyecon" onClick={toggleVision}/>}
                             </div>
                         </div>
                     </div>
-                    <p>Already have an account?<span>Log in</span></p>
+                    <div className="flavor-container">
+                            <p>Already have an account?<span style={{marginLeft: '0.5rem'}}>Log in</span></p>
+                    </div>
                     <input type="submit" value="Sign up" className="btn btn-gray"/>
                     {error && <p>{error}</p>}
                 </form>

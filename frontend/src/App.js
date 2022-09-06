@@ -21,8 +21,8 @@ function App() {
   // console.log(attractions)
   return (
     <div className="App">
-      {/* <Login/> */}
-      <SearchBar/>
+      <Signup/>
+      {/* <SearchBar/> */}
     </div>
   );
 }
