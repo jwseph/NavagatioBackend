@@ -13,7 +13,7 @@ api = Api(app)
 class TopTrips(Resource):
 
     def get(self):
-        return {"top_trips": ["Beijing", "Los Angeles", "Tokyo"]}
+        return {"results": ["Beijing", "Los Angeles", "Tokyo"]}
 
 
 class ProcessedPlan(Resource):
@@ -28,7 +28,7 @@ class PlacesAutocomplete(Resource):
         return {"results":place_autocomplete.autocomplete(search_query)}
 
 # Top Trips (Returning most popular trips near you)
-api.add_resource(TopTrips, '/trips')
+api.add_resource(TopTrips, '/search/')
 
 # Returns PROCESSED TRIP PLAN (AI Data)
 api.add_resource(ProcessedPlan, '/plans/<string:city_name>')

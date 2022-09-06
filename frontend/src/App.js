@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 // import TripList from './layout/TripList';
 import Signup from './pages/Signup';
 import Login from './pages/Login';
+import SearchBar from './components/SearchBar';
 
 import './App.css';
 
@@ -20,7 +21,8 @@ function App() {
   // console.log(attractions)
   return (
     <div className="App">
-      <Login/>
+      {/* <Login/> */}
+      <SearchBar/>
     </div>
   );
 }
