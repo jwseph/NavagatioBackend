@@ -1,25 +1,61 @@
-import Button from '../components/Button';
-const Login = () => {
+import { useState } from "react";
+import { useSignup } from "../hooks/useSignup";
+import { MdMail, MdLock } from 'react-icons/md';
+import { AiFillEyeInvisible, AiFillEye} from 'react-icons/ai';
+
+import ButtonList from '../layout/ButtonList';
+import '../sass/button.scss';
+import "../sass/style/Auth.scss";
+
+export default function Signup() {
+    const [email, setEmail] = useState('')
+    const [password, setPassword] = useState('')
+    const [visibility, setVisibility] = useState(false)
+    const { error, signup } = useSignup()
+
+    const handleSubmit = (event) => {
+        event.preventDefault()
+        signup(email, password)
+        console.log('submit');
+    }
+
+    const toggleVision = () => {
+        setVisibility(!visibility)
+    }
+
     return(
         <div>
-            <h1>Get Started</h1>
-            <p>Please create an account by email</p>
-            <form method="post" onSubmit={handleSubmit}>
-                <div className="content-field">
-                    <input type="text" name="email" onChange={(event)=>{setEmail(event.target.value)}} required/>
-                    <span className="highlight"></span>
-                    <label><MdMail className="icon"/>  Email</label>
-                </div>
-                
-                <div className="content-field">
-                    <input type="password" onChange={(event)=>{setPassword(event.target.value)}} required/>
-                    <span className="highlight"></span>
-                    <label><MdLock/>  Password</label>
-                </div>
-                <p>Don't have an account?<span>Sign up</span></p>
-                <Button>Log In</Button>
-                {error && <p>{error}</p>}
-            </form>
+            <h1>Welcome Back!</h1>
+            <p>Log in you little bitch</p>
+                <form onSubmit={handleSubmit}>
+                    <div className="form-container">
+                        <div className="input-field">
+                            <MdMail className="icon"/>
+                            <div className="content-field">
+                                <input type="text" name="email" onChange={(event)=>{setEmail(event.target.value)}} required/>
+                                <span className="highlight"></span>
+                                <label>Email</label>
+                            </div>
+                        </div>
+
+                        <div className="input-field">
+                            <MdLock className="icon"/>
+                            <div className="content-field">
+                                <input type={visibility?"text":"password"} onChange={(event)=>{setPassword(event.target.value)}} required/>
+                                <span className="highlight"></span>
+                                <label>Password</label>
+                                {visibility?<AiFillEye className="eye-con" onClick={toggleVision}/>:<AiFillEyeInvisible className="eye-con" onClick={toggleVision}/>}
+                            </div>
+                        </div>
+                    </div>
+                    <p>No account?<span>Sign up</span></p>
+                    <input type="submit" value="Sign up" className="btn btn-gray"/>
+                    {error && <p>{error}</p>}
+                </form>
+            <div>
+                <span/><p>or</p><span/>
+            </div>
+            <ButtonList/>
         </div>
     )
 }

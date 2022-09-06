@@ -1,4 +1,4 @@
-@import '../sass/variables.scss';
+@import '../variables.scss';
 
 body {
     text-align: center;
@@ -21,6 +21,7 @@ h1 {
 .content-field {
     position: relative;
     border-bottom: 2px solid $medium-gray;
+    width: 100%;
 }
 
 input {

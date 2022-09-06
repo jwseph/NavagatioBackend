@@ -1,12 +1,11 @@
 import { useState } from "react";
 import { useSignup } from "../hooks/useSignup";
-import { MdMail, MdLock, MdFacebook,  } from 'react-icons/md';
-import { FcGoogle} from 'react-icons/fc';
-import { AiFillEyeInvisible, AiFillEye, AiFillApple } from 'react-icons/ai';
+import { MdMail, MdLock } from 'react-icons/md';
+import { AiFillEyeInvisible, AiFillEye} from 'react-icons/ai';
 
-import Button from '../components/Button';
+import ButtonList from '../layout/ButtonList';
 import '../sass/button.scss';
-import "./Auth.scss";
+import "../sass/style/Auth.scss";
 
 export default function Signup() {
     const [email, setEmail] = useState('')
@@ -17,6 +16,7 @@ export default function Signup() {
     const handleSubmit = (event) => {
         event.preventDefault()
         signup(email, password)
+        console.log('submit');
     }
 
     const toggleVision = () => {
@@ -27,7 +27,7 @@ export default function Signup() {
         <div>
             <h1>Get Started</h1>
             <p>Please create an account by email</p>
-                <form method="post" onSubmit={handleSubmit}>
+                <form onSubmit={handleSubmit}>
                     <div className="form-container">
                         <div className="input-field">
                             <MdMail className="icon"/>
@@ -59,17 +59,13 @@ export default function Signup() {
                         </div>
                     </div>
                     <p>Already have an account?<span>Log in</span></p>
-                    <input type="submit" value="Submit" className="btn btn-gray"/>
+                    <input type="submit" value="Sign up" className="btn btn-gray"/>
                     {error && <p>{error}</p>}
                 </form>
             <div>
                 <span/><p>or</p><span/>
             </div>
-            <div className="button-container">
-                <Button theme='btn-white'><FcGoogle/>Continue with Google</Button>
-                <Button theme='btn-black'><AiFillApple/>Continue with Apple</Button>
-                <Button theme='btn-blue'><MdFacebook/>Continue with Facebook</Button>
-            </div>
+            <ButtonList/>
         </div>
     )
 }
