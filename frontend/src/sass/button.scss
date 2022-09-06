@@ -3,7 +3,8 @@
     &:link,
     &:visited {
         text-decoration: none;
-        padding: 10px 100px;
+        padding: 10px 0;
+        width: 100%;
         font-weight: 700;
         display: inline-block;
         border-radius: 100px;
@@ -23,5 +24,20 @@
     &-gray {
         color: white;
         background-color: $dark-gray;
+    }
+
+    &-white {
+        color: black;
+        background-color: white;
+    }
+
+    &-black {
+        color: white;
+        background-color: #000000;
+    }
+
+    &-blue {
+        color: white;
+        background-color: #1877f5
     }
 }
