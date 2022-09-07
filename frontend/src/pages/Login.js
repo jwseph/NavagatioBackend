@@ -5,7 +5,7 @@ import { AiFillEyeInvisible, AiFillEye} from 'react-icons/ai';
 
 import ButtonList from '../layout/ButtonList';
 import '../sass/button.scss';
-import "../sass/style/Auth.scss";
+import styles from "../sass/style/Auth.module.scss";
 
 export default function Signup() {
     const [email, setEmail] = useState('')
@@ -25,35 +25,35 @@ export default function Signup() {
 
     return(
         <div className="">
-            <h1>Welcome Back!</h1>
+            <h1 className={styles.h1}>Welcome Back!</h1>
             <p>Log in you little bitch</p>
                 <form onSubmit={handleSubmit}>
-                    <div className="form-container">
-                        <div className="input-field">
-                            <MdMail className="icon"/>
-                            <div className="content-field">
-                                <input type="text" name="email" onChange={(event)=>{setEmail(event.target.value)}} required/>
-                                <span className="highlight"></span>
-                                <label>Email</label>
+                    <div className={styles.form_container}>
+                        <div className={styles.input_field}>
+                            <MdMail className={styles.icon}/>
+                            <div className={styles.content_field}>
+                                <input className={styles.input} type="text" name="email" onChange={(event)=>{setEmail(event.target.value)}} required/>
+                                <span className={styles.highlight}></span>
+                                <label className={styles.label}>Email</label>
                             </div>
                         </div>
 
-                        <div className="input-field">
-                            <MdLock className="icon"/>
-                            <div className="content-field">
+                        <div className={styles.input_field}>
+                            <MdLock className={styles.icon}/>
+                            <div className={styles.content_field}>
                                 <input type={visibility?"text":"password"} onChange={(event)=>{setPassword(event.target.value)}} required/>
-                                <span className="highlight"></span>
+                                <span className={styles.highlight}></span>
                                 <label>Password</label>
-                                {visibility?<AiFillEye className="eyecon" onClick={toggleVision}/>:<AiFillEyeInvisible className="eye-con" onClick={toggleVision}/>}
+                                {visibility?<AiFillEye className={styles.eyecon} onClick={toggleVision}/>:<AiFillEyeInvisible className="eye_con" onClick={toggleVision}/>}
                             </div>
                         </div>
 
-                        <div className="flavor-container">
+                        <div className={styles.flavor_container}>
                             <p>No account?<span style={{marginLeft: '0.5rem'}}>Sign up</span></p>
                             <p>Forgot password?</p>
                         </div>
                     </div>
-                    <input type="submit" value="Log in" className="btn btn-gray"/>
+                    <input type="submit" value="Log in" className={`${styles.btn} ${styles.btn_gray}`}/>
                     {error && <p>{error}</p>}
                 </form>
             <div>
