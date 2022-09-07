@@ -5,7 +5,7 @@ import { AiFillEyeInvisible, AiFillEye} from 'react-icons/ai';
 
 import ButtonList from '../layout/ButtonList';
 import '../sass/button.scss';
-import "../sass/style/Auth.module.scss";
+import "../sass/style/Auth.scss";
 
 export default function Signup() {
     const [email, setEmail] = useState('')
@@ -26,11 +26,11 @@ export default function Signup() {
     }
 
     return(
-        <div className="center">
+        <div className="">
             <h1>Get Started</h1>
             <p>Please create an account by email</p>
-                <form onSubmit={handleSubmit} className="form-container">
-                    <div>
+                <form onSubmit={handleSubmit}>
+                    <div className="form-container">
                         <div className="input-field">
                             <MdMail className="icon"/>
                             <div className="content-field">
@@ -66,7 +66,9 @@ export default function Signup() {
                     <input type="submit" value="Sign up" className="btn btn-gray"/>
                     {error && <p>{error}</p>}
                 </form>
-                <p>or</p>
+            <div>
+                <span/><p>or</p><span/>
+            </div>
             <ButtonList/>
         </div>
     )
