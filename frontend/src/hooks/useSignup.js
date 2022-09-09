@@ -18,5 +18,5 @@ export const useSignup = () => {
             })
     }
 
-    return { error, signup}
+    return {error, signup}
 }

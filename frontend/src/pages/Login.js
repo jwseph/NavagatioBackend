@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
+
 import { useSignup } from "../hooks/useSignup";
 import { MdMail, MdLock } from 'react-icons/md';
 import { AiFillEyeInvisible, AiFillEye} from 'react-icons/ai';
@@ -26,7 +28,7 @@ export default function Signup() {
     return(
         <div className="content-container">
             <h1>Welcome Back!</h1>
-            <p>Log in you little bitch</p>
+            <p>Please sign in to continue</p>
                 <form onSubmit={handleSubmit}>
                     <div className="form-container">
                         <div className="input-field">
@@ -49,7 +51,7 @@ export default function Signup() {
                         </div>
 
                         <div className="flavor-container">
-                            <p>No account?<span style={{marginLeft: '0.5rem'}}>Sign up</span></p>
+                            <p>No account?<Link style={{marginLeft: '0.5rem'}} to="/signup">Sign up</Link></p>
                             <p>Forgot password?</p>
                         </div>
                     </div>

@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
+
 import { useSignup } from "../hooks/useSignup";
 import { MdMail, MdLock } from 'react-icons/md';
 import { AiFillEyeInvisible, AiFillEye} from 'react-icons/ai';
@@ -10,15 +12,27 @@ import "../sass/style/Auth.scss";
 export default function Signup() {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
+    const [vPassword, setVPassword] = useState('')
 
 
     const [visibility, setVisibility] = useState(false)
+    const [errorMsg, setErrorMsg] = useState('')
     const { error, signup } = useSignup()
+
+    function validateForm() {
+        if (password !== vPassword) {
+            setErrorMsg("Passwords do not match")
+        }
+        
+        if (error) {
+            setErrorMsg(error)
+        }
+    }
 
     const handleSubmit = (event) => {
         event.preventDefault()
         signup(email, password)
-        console.log('submit');
+        console.log(error);
     }
 
     const toggleVision = () => {
@@ -53,7 +67,7 @@ export default function Signup() {
                         <div className="input-field">
                             <MdLock className="icon"/>
                             <div className="content-field">
-                                <input type={visibility?"text":"password"} required/>
+                                <input type={visibility?"text":"password"} onChange={(event)=>{setVPassword(event.target.value)}} required/>
                                 <span className="highlight"></span>
                                 <label>Confirm password</label>
                                 {visibility?<AiFillEye className="eyecon" onClick={toggleVision}/>:<AiFillEyeInvisible className="eyecon" onClick={toggleVision}/>}
@@ -61,10 +75,9 @@ export default function Signup() {
                         </div>
                     </div>
                     <div className="flavor-container">
-                            <p>Already have an account?<span style={{marginLeft: '0.5rem'}}>Log in</span></p>
+                            <p>Already have an account?<Link style={{marginLeft: '0.5rem'}} to="/login">Log in</Link></p>
                     </div>
                     <input type="submit" value="Sign up" className="btn btn-gray"/>
-                    {error && <p>{error}</p>}
                 </form>
             <div>
                 <span/><p>or</p><span/>

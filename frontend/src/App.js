@@ -9,9 +9,12 @@ import SearchBar from './components/SearchBar';
 import './App.css';
 
 function App() {
+  const [authed, setAuthed] = useState(false);
+
   return (
       <Routes>
-        <Route path="/" element={<Signup />}/>
+        <Route path="/signup" element={<Signup />}/>
+        <Route path="/login" element={<Login />}/>
         {/* <Route path="/" element={<Nav />}>
           <Route index element={<Home/>}/>
         </Route> */}
