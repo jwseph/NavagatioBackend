@@ -26,7 +26,7 @@ export default function Signup() {
     }
 
     return(
-        <div className="">
+        <div className="content-container">
             <h1>Get Started</h1>
             <p>Please create an account by email</p>
                 <form onSubmit={handleSubmit}>
