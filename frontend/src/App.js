@@ -13,6 +13,7 @@ function App() {
 
   return (
       <Routes>
+        <Route path="/" element={<SearchBar/>}/>
         <Route path="/signup" element={<Signup />}/>
         <Route path="/login" element={<Login />}/>
         {/* <Route path="/" element={<Nav />}>

@@ -1,4 +1,5 @@
 import { React, useEffect, useState } from 'react';
+import styles from './SearchBar.module.css';
 function SearchBar() {
     const [search_query, setSearch_query] = useState('')
     const [places, setPlaces] = useState([])
@@ -10,14 +11,13 @@ function SearchBar() {
       ).then(
         places_data => {
           setPlaces(places_data.results)
-          console.log(places_data);
         }
       )
     }, [search_query])
 
     return(
       <div>
-        <input type="text" placeholder='Where to?' 
+        <input className={styles.search_bar} type="text" placeholder='Where to?' 
           onChange={(e)=>setSearch_query(
             e.currentTarget.value.charAt(0).toUpperCase() + 
             e.currentTarget.value.slice(1))}/>
