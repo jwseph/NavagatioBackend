@@ -6,6 +6,7 @@ import Login from './pages/Login';
 // import Nav from './pages/Nav';
 // import Home from './pages/Login'
 import SearchBar from './components/SearchBar';
+import Category from './pages/Category';
 import './App.css';
 
 function App() {
@@ -13,7 +14,7 @@ function App() {
 
   return (
       <Routes>
-        <Route path="/" element={<SearchBar/>}/>
+        <Route path="/" element={<Category/>}/>
         <Route path="/signup" element={<Signup />}/>
         <Route path="/login" element={<Login />}/>
         {/* <Route path="/" element={<Nav />}>
