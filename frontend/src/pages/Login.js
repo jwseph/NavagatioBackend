@@ -26,7 +26,7 @@ export default function Signup() {
     }
 
     return(
-        <div className="content-container">
+        <div className="page">
             <h1>Welcome Back!</h1>
             <p>Please sign in to continue</p>
                 <form onSubmit={handleSubmit}>

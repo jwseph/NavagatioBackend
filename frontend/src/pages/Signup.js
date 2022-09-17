@@ -40,7 +40,7 @@ export default function Signup() {
     }
 
     return(
-        <div className="content-container">
+        <div className="page">
             <h1>Get Started</h1>
             <p>Please create an account by email</p>
                 <form onSubmit={handleSubmit}>

@@ -31,10 +31,18 @@
     &-black {
         color: white;
         background-color: #000000;
+
+        &:hover {
+            color: white;
+        }
     }
 
     &-blue {
         color: white;
-        background-color: #1877f5
+        background-color: #1877f5;
+
+        &:hover {
+            color: white;
+        }
     }
 }

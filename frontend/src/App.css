@@ -6,3 +6,11 @@ a, a:hover, a:focus, a:active {
   text-decoration: none;
   color: inherit;
 }
+
+.page {
+  display: grid;
+  place-items: center;
+  align-content: center;
+  min-height: 80vh;
+  width: 100%;
+}

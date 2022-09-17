@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 // import TripList from './layout/TripList';
 import Signup from './pages/Signup';
 import Login from './pages/Login';
+import Home from './pages/Home';
 // import Nav from './pages/Nav';
 // import Home from './pages/Login'
 import SearchBar from './components/SearchBar';

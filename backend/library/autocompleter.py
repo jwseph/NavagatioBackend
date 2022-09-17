@@ -1,8 +1,10 @@
 import json
-
+import pandas as pd
+import os
 class Autocompleter:
     def __init__(self, data):
         self.data = data
+        self.autocomplete_data = pd.read_csv('backend/library/autocomp_data.csv')
 
     def get_strings(self, node1):
         def get(node, string, strings):
@@ -18,6 +20,16 @@ class Autocompleter:
 
     # Autocomplete Functions
     def autocomplete(self, prefix):
+        # def process(result, df):
+        #     processed_data = []
+        #     for city in result:
+        #         point = {}
+        #         point['city'] = city
+        #         point['country'] = df['city' == city]['country'] if df['city' == city]['country'] != None else 'null'
+        #         processed_data.append(point)
+
+        #     return processed_data
+
         node = self.data
         for char in prefix:
             if char not in node[1]:
@@ -25,6 +37,7 @@ class Autocompleter:
             node = node[1][char]
 
         results = [prefix + string for string in self.get_strings(node)]
+        
         if len(results) > 20:
             return results[:25]
         return results

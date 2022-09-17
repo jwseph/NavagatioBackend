@@ -17,13 +17,13 @@ function SearchBar() {
 
     return(
       <div>
-        <input className={styles.search_bar} type="text" placeholder='Where to?' 
+        <input className={styles.search_bar} type="text" placeholder='Where To?' 
           onChange={(e)=>setSearch_query(
             e.currentTarget.value.charAt(0).toUpperCase() + 
             e.currentTarget.value.slice(1))}/>
         <ul>
           {
-            places.map((place, i )=> {
+            places.map((place, i)=> {
               return(<li style={{listStyle:"none"}} key={i}>{place}</li>)
             })
           }
