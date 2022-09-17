@@ -1,5 +1,6 @@
 import data from '../json/tags.json';
 import Tag from '../components/Tag';
+import '../sass/style/Auth.scss';
 
 const Category = () => {
     const tag_themes = 
@@ -9,7 +10,7 @@ const Category = () => {
     }
 
     return(
-        <p>
+        <p style={{whiteSpace: "pre-wrap", wordBreak:"break-word"}}>
             {
                 data.map((data, i) => {
                     const index = Math.floor(Math.random() * 3);
