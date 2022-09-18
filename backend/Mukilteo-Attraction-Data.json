@@ -427,7 +427,7 @@
        "result" : {
           "formatted_phone_number" : "(800) 464-1476",
           "international_phone_number" : "+1 800-464-1476",
-          "name" : "Boeing Future of Flight​",
+          "name" : "Boeing Future of Flight",
           "opening_hours" : {
              "open_now" : true,
              "periods" : [
