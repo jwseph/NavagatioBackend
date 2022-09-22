@@ -5,7 +5,6 @@ from library.autocompleter import autocomp_init
 
 app = Flask(__name__)
 
-
 place_autocomplete = autocomp_init()
 api = Api(app)
 

@@ -20,15 +20,15 @@ class Autocompleter:
 
     # Autocomplete Functions
     def autocomplete(self, prefix):
-        # def process(result, df):
-        #     processed_data = []
-        #     for city in result:
-        #         point = {}
-        #         point['city'] = city
-        #         point['country'] = df['city' == city]['country'] if df['city' == city]['country'] != None else 'null'
-        #         processed_data.append(point)
+        def process(result, df):
+            processed_data = []
+            for city in result:
+                point = {}
+                point['city'] = city
+                point['country'] = df[df['city_ascii'] == city]['country'].item()
+                processed_data.append(point)
 
-        #     return processed_data
+            return processed_data
 
         node = self.data
         for char in prefix:
@@ -39,11 +39,12 @@ class Autocompleter:
         results = [prefix + string for string in self.get_strings(node)]
         
         if len(results) > 20:
-            return results[:25]
-        return results
+            return process(results[:25], self.autocomplete_data)
 
 def autocomp_init(path='places.json'):
     with open(path) as json_file:
         data = json.load(json_file)
     return Autocompleter(data=data)
 
+autocomp = autocomp_init()
+print(autocomp.autocomplete("A"))

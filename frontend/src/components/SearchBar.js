@@ -15,6 +15,8 @@ function SearchBar() {
       )
     }, [search_query])
 
+    console.log(places);
+
     return(
       <div>
         <input className={styles.search_bar} type="text" placeholder='Where To?' 
@@ -24,7 +26,7 @@ function SearchBar() {
         <ul>
           {
             places.map((place, i)=> {
-              return(<li style={{listStyle:"none"}} key={i}>{place}</li>)
+              return(<li style={{listStyle:"none"}} key={i}>{place.city}, {place.country}</li>)
             })
           }
         </ul>
