@@ -20,12 +20,15 @@ class Autocompleter:
 
     # Autocomplete Functions
     def autocomplete(self, prefix):
+        if len(prefix) < 3:
+            return {"message":"Needs at least 2 letters."}
+
         def process(result, df):
             processed_data = []
             for city in result:
                 point = {}
                 point['city'] = city
-                point['country'] = df[df['city_ascii'] == city]['country'].item()
+                point['country'] = df[df['city_ascii'] == city]['country'].tolist()[0]
                 processed_data.append(point)
 
             return processed_data
@@ -38,13 +41,14 @@ class Autocompleter:
 
         results = [prefix + string for string in self.get_strings(node)]
         
-        if len(results) > 20:
-            return process(results[:25], self.autocomplete_data)
+        return process(results[:25], self.autocomplete_data)
+
 
 def autocomp_init(path='places.json'):
     with open(path) as json_file:
         data = json.load(json_file)
     return Autocompleter(data=data)
 
+
 autocomp = autocomp_init()
-print(autocomp.autocomplete("A"))
+print(autocomp.autocomplete("Mu"))
