@@ -50,5 +50,5 @@ def autocomp_init(path='places.json'):
     return Autocompleter(data=data)
 
 
-autocomp = autocomp_init()
-print(autocomp.autocomplete("Mu"))
+# autocomp = autocomp_init()
+# print(autocomp.autocomplete("Mu"))
