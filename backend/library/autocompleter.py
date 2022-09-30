@@ -22,6 +22,8 @@ class Autocompleter:
     def autocomplete(self, prefix):
         if len(prefix) < 3:
             return {"message":"Needs at least 2 letters."}
+        
+        prefix[0].upper()
 
         def process(result, df):
             processed_data = []
@@ -51,4 +53,4 @@ def autocomp_init(path='places.json'):
 
 
 # autocomp = autocomp_init()
-# print(autocomp.autocomplete("Mu"))
+# print(autocomp.autocomplete("Muk"))
